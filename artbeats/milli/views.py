@@ -6,4 +6,4 @@ def index(request):
   context = {
     'title': 'Milli'
   }
-  return HttpResponse(template.render())
+  return HttpResponse(template.render(context,request))
