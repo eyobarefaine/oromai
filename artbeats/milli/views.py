@@ -10,7 +10,7 @@ def index(request):
 
   rows = cur.fetchall()
   for row in rows:
-    print(row[0])
+    print(row[2])
 
   conn.close()
   template = loader.get_template('index.html')
