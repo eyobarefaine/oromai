@@ -4,7 +4,7 @@ from django.template import loader
 from .arts import Arts
 def index(request):
 
-  arts = Arts(1)
+  arts = Arts(2)
 
 
   template = loader.get_template('index.html')
