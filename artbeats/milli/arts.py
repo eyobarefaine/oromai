@@ -13,7 +13,7 @@ class Arts:
         rows = cur.fetchall()
 
         for row in rows:
-            rv = row[1]
+            rv = row[2]
 
         conn.close()
 

@@ -9,6 +9,6 @@ def index(request):
 
   template = loader.get_template('index.html')
   context = {
-    'title': 'Milli Artbeats Page','Artist':arts.getArtName()
+    'title': 'Milli Artbeats Page','artist':arts.getArtName()
   }
   return HttpResponse(template.render(context,request))
