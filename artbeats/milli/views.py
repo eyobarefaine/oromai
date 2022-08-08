@@ -5,11 +5,10 @@ from .arts import Arts
 def index(request):
 
   arts = Arts(1)
-  a = arts.getArtName()
-  print (a)
+
 
   template = loader.get_template('index.html')
   context = {
-    'title': 'Milli Artbeats Page'
+    'title': 'Milli Artbeats Page','Artist':arts.getArtName()
   }
   return HttpResponse(template.render(context,request))

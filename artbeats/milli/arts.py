@@ -13,10 +13,10 @@ class Arts:
         rows = cur.fetchall()
 
         for row in rows:
-            print(row[2])
+            rv = row[2]
 
         conn.close()
 
-        return "all good"
+        return rv
 
 
