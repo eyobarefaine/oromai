@@ -13,7 +13,7 @@ def index(request):
   }
   return HttpResponse(template.render(context,request))
 
-def admin(request):
+def astedadari(request):
   template = loader.get_template('index.html')
   context = {
     'title': 'Milli Artbeats Page', 'artist': ''
