@@ -16,6 +16,6 @@ def index(request):
 def astedadari(request):
   template = loader.get_template('astedadari.html')
   context = {
-    'title': 'Milli Artbeats Page', 'artist': ''
+    'title': 'Milli Artbeats Page', 'artist': 'Eyob'
   }
   return HttpResponse(template.render(context, request))
