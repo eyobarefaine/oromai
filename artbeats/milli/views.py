@@ -14,8 +14,8 @@ def index(request):
   return HttpResponse(template.render(context,request))
 
 def astedadari(request):
-  template = loader.get_template('astedadari.html')
+  my = loader.get_template('astedadari.html')
   context = {
     'title': 'Milli Artbeats Page', 'artist': 'Eyob'
   }
-  return HttpResponse(template.render(context, request))
+  return HttpResponse(my.render(context, request))
