@@ -12,3 +12,10 @@ def index(request):
     'title': 'Milli Artbeats Page','artist':arts.getArtName()
   }
   return HttpResponse(template.render(context,request))
+
+def admin(request):
+  template = loader.get_template('index.html')
+  context = {
+    'title': 'Milli Artbeats Page', 'artist': ''
+  }
+  return HttpResponse(template.render(context, request))
