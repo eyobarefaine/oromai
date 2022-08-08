@@ -7,14 +7,14 @@ def index(request):
   arts = Arts(2)
 
 
-  template = loader.get_template('astedadari.html')
+  template = loader.get_template('index.html')
   context = {
     'title': 'Milli Artbeats Page','artist':arts.getTitle(),'teaser':arts.getTeaser()
   }
   return HttpResponse(template.render(context,request))
 
 def astedadari(request):
-  template = loader.get_template('index.html')
+  template = loader.get_template('astedadari.html')
   context = {
     'title': 'Milli Artbeats Page', 'artist': ''
   }
