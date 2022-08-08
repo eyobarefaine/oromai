@@ -3,5 +3,5 @@ class Arts:
         self.name=name
         self.age =age
     def art_func(self):
-       return self.name
+      print(self.name)
 

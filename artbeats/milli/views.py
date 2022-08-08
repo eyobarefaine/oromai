@@ -6,7 +6,7 @@ import psycopg2
 def index(request):
 
   arts = Arts("John",32)
-  print arts.art_func()
+  arts.art_func()
   conn = psycopg2.connect(database="artbeats", user="eyob", password="m1ll10n", host="0.0.0.0", port="5432")
 
   cur = conn.cursor()
