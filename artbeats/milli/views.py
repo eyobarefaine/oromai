@@ -1,6 +1,5 @@
 from django.http import HttpResponse
 from django.template import loader
-import Arts
 import psycopg2
 
 def index(request):
