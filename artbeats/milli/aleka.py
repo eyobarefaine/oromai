@@ -4,7 +4,7 @@ from django.template import loader
 from .arts import Arts
 def index(request):
 
-  my = loader.get_template('gallery.html')
+  my = loader.get_template('astedadari.html')
   context = {
     'title': 'Milli Artbeats Page', 'artist': 'Eyob'
   }
