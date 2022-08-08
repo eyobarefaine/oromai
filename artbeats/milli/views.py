@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.template import loader
 import psycopg2
-
+import Arts
 def index(request):
 
   arts = Arts("John",32)
