@@ -6,4 +6,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('', views.astedadari, name='astedadari'),
     path('', aleka.index,name='index')
+
 ]

@@ -9,6 +9,7 @@ urlpatterns = [
     path(r'^$', include('milli.urls')),
     path('astedadari/', include('milli.urls')),
     path('aleka/',aleka.index, name='index'),
+    path('login/',aleka.login,name='login'),
     path('alekaw/',include('milli.urls')),
     path('admin/', admin.site.urls),
 ]
