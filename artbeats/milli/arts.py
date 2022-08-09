@@ -36,7 +36,7 @@ class Arts:
 
     def check(self, login, password):
         cur = self.conn.cursor()
-        cur.execute("SELECT * from arts_admin where login=%s and password =%s ",login, password)
+        cur.execute("SELECT * from arts_admin where login=%s and password =%s ",[login, password])
         if cur.rowcount == 0:
             return False
         else:
