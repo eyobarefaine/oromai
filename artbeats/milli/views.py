@@ -1,16 +1,16 @@
 from django.http import HttpResponse
 from django.template import loader
 
-from .arts import Arts
+from .entity.model import arts
 def index(request):
 
-  arts = Arts(2)
 
-
+  obj = arts.objects.first()
   template = loader.get_template('index.html')
   context = {
-    'title': 'Milli Artbeats Page','artist':arts.getTitle(),'teaser':arts.getTeaser()
+    'title': 'Milli Artbeats Page','artist':getattr(obj,'title'),'teaser':getattr(obj,'descr')
   }
+
   return HttpResponse(template.render(context,request))
 
 def astedadari(request):

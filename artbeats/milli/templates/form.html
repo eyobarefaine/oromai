@@ -1,0 +1,28 @@
+<div class="row" style="margin-lef:50px; margin-right:50px; background-color: white; color:black" >
+<div class="container-fluid" style="margin-left:50px">
+<form method="post" action="/save/">
+  {% csrf_token %}
+  <div class="form-group">
+    <div class="row">
+            <div class="form-group col-lg-4">
+    <label for="title" class="col-sm-3">Art Titles</label>
+    <textarea type="text" class="form-control" id="title" name="title" aria-describedby="loginHelp" >{{title}}</textarea>
+    <small id="loginHelp" class="form-text text-muted"></small>
+  </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row">
+            <div class="form-group col-lg-4">
+    <label for="descr">Description</label>
+    <textarea type="text" class="form-control" name="descr" id="descr">{{descr}}</textarea>
+  </div>
+    </div></div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+</div>

@@ -1,5 +1,6 @@
 import psycopg2
 from .connection import connector
+
 class Arts:
     def __init__(self, id):
         self.id=id
@@ -7,7 +8,8 @@ class Arts:
 
     def getTitle(self):
 
-        #conn = psycopg2.connect(database="artbeats", user="eyob", password="m1ll10n", host="0.0.0.0", port="5432")
+
+
 
         cur = self.conn.cursor()
         cur.execute("SELECT * from ARTS where id =%s", [self.id])
@@ -17,7 +19,7 @@ class Arts:
         for row in rows:
             rv = row[2]
 
-        self.conn.close()
+
 
         return rv
     def getTeaser(self):
@@ -30,7 +32,7 @@ class Arts:
         for row in rows:
             rv = row[3]
 
-        self.conn.close()
+
 
         return rv
 
@@ -41,6 +43,22 @@ class Arts:
             return False
         else:
             return True
+
+    def getArts(self, rv):
+        cur = self.conn.cursor()
+        cur.execute("SELECT * from Arts where id=%s",[2])
+        rows = cur.fetchone()
+        return rows[rv]
+
+    def saveArts(self,title):
+        cur = self.conn.cursor()
+        try:
+           cur.execute("UPDATE Arts set arts_title=%s where id=%s", [title,2])
+           print("success..............")
+        except:
+           print("something went wrong")
+        return ""
+
 
 
 
