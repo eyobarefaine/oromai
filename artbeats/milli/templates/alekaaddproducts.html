@@ -22,7 +22,11 @@
 
     <!-- ======= Gallery Section ======= -->
     <!-- End Gallery Section -->
-{% include "adminmenu.html" %}
+    {% if add %}
+     {% include "addproductsform.html" %}
+    {% else %}
+     {% include "editproductform.html" %}
+    {% endif %}
 
   </main><!-- End #main -->
 

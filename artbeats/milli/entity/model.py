@@ -16,3 +16,15 @@ class artsadmin(models.Model):
     usersname = models.CharField(max_length=20)
     password = models.CharField(max_length=20)
 
+class artsproducts(models.Model):
+    artsname = models.CharField(max_length=128)
+    artsdescr = models.CharField(max_length=256)
+    artspath = models.CharField(max_length=300)
+    artsprice = models.DecimalField(max_digits=6, decimal_places=2)
+    artscatagory = models.CharField(max_length=15)
+
+class artscategory(models.Model):
+    category = models.CharField(max_length=50)
+    categorydescr = models.CharField(max_length=50)
+
+

@@ -1,0 +1,43 @@
+{% include "adminmenu.html"%}
+<div class="row" style="padding:50px;margin-lef:50px;  background-color: white; color:black" >
+<div class="container-fluid" style="margin-left:50px">
+<form method="post" action="/aleka/saveproducts/">
+  {% csrf_token %}
+  <div class="form-group">
+    <div class="row" style="width:50%">
+      <div class="form-group">
+    <label for="artsname" >Name</label>
+    <input required type="text" class="form-control" id="artsname" name="artsname" aria-describedby="loginHelp" >{{artsname}}</input>
+    <small id="loginHelp" class="form-text text-muted"></small>
+  </div>
+       <div class="form-group ">
+    <label for="artsdescr" class="col-sm-3">Descr</label>
+    <Textarea required type="text" class="form-control" id="artsdescr" name="artsdesc" aria-describedby="loginHelp" >{{artsdescr}}</textarea>
+
+  </div>
+      <div class="form-group">
+    <label for="artsname">Price</label>
+    <input required type="text" class="form-control" id="artsprice" name="artsprice" aria-describedby="loginHelp" >{{artsprice}}</input>
+
+  </div>
+        <div class="form-group">
+    <label for="artscategory" >Category</label>
+    <select  class="form-control" id="artscategory" name="artscategory" aria-describedby="loginHelp" >
+    {% for cat in item %}
+      <option valeu="{{cat.category}}">{{cat.categorydescr}}</option>
+    {% endfor %}}
+    </select>
+
+
+  </div>
+
+
+    </div>
+  </div>
+  <div class="form-group">
+    </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+</div>

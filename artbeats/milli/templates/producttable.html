@@ -1,0 +1,60 @@
+{% include "adminmenu.html"%}
+<div class="row" style="padding:50px;margin-lef:50px;  background-color: white; color:black" >
+<div class="container-fluid" style="margin-left:50px">
+<form method="post" action="/save/">
+  {% csrf_token %}
+
+  {% for k in items%}
+    {{items.artsname}}
+  {%endfor%}
+
+  <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col">Name</th>
+      <th scope="col">Descr</th>
+      <th scope="col">Price</th>
+       <th scope="col">Category</th>
+    </tr>
+  </thead>
+  <tbody>
+
+   {% for k in items%}
+
+  <tr>
+    <th  width="5%">
+
+        <input type="hidden" name = "id" value="{{k.id}}">
+        <a type="button" class="btn-danger" href="/aleka/editproduct?id={{k.id}}">
+            <i class="bi bi-pencil-fill"></i>
+        </a>
+
+    </th>
+     <th width="5%">
+       <form method="post" action="/aleka/products/remove/">
+           {% csrf_token %}
+        <input type="hidden" name = "id" value="{{k.id}}">
+        <button type="submit" class="btn-danger">
+          <i class="bi bi-trash-fill"></i>
+        </button>
+      </form>
+     </th>
+      <th>{{k.artsname}}</th>
+      <td>{{k.artsdescr}}</td>
+      <td>{{k.artsprice}}</td>
+      <td>{{k.artscatagory}}</td>
+    </tr>
+
+  {%endfor%}
+  </tbody>
+</table>
+
+
+
+
+
+</form>
+</div>
+</div>
