@@ -7,9 +7,10 @@ from milli import pagesetup
 from milli import products
 from django.conf import settings
 from django.conf.urls.static import static
+#Eyob
 urlpatterns = [
     path('',views.index, name='index'),
-    path(r'^$', include('milli.urls')),
+    path('', include('milli.urls')),
     path('astedadari/', include('milli.urls')),
     path('aleka/',aleka.index, name='index'),
     path('aleka/products',products.index, name='index'),
