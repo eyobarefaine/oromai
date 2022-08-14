@@ -81,6 +81,7 @@ WSGI_APPLICATION = 'artbeats.wsgi.application'
 #        'NAME': BASE_DIR / 'db.sqlite3',
 #    }
 #}
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -88,6 +89,17 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'm1ll1on',
         'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'artbeats',
+        'USER': 'eyob',
+        'PASSWORD': 'm1ll1on',
+        'HOST': 'artbeats.ca',
         'PORT': '5432',
     }
 }
