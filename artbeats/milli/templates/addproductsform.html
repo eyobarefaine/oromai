@@ -1,8 +1,9 @@
 {% include "adminmenu.html"%}
 <div class="row" style="padding:50px;margin-lef:50px;  background-color: white; color:black" >
 <div class="container-fluid" style="margin-left:50px">
-<form method="post" action="/aleka/saveproducts">
+<form method="post" action="/aleka/saveproducts/" enctype="multipart/form-data">
   {% csrf_token %}
+  {{ form.as_p }}
   <div class="form-group">
     <div class="row" style="width:50%">
       <div class="form-group">
@@ -12,7 +13,7 @@
   </div>
        <div class="form-group ">
     <label for="artsdescr" class="col-sm-3">Descr</label>
-    <Textarea required type="text" class="form-control" id="artsdescr" name="artsdesc" aria-describedby="loginHelp" >{{artsdescr}}</textarea>
+    <Textarea required type="text" class="form-control" id="artsdescr" name="artsdescr" aria-describedby="loginHelp" >{{artsdescr}}</textarea>
 
   </div>
       <div class="form-group">
@@ -20,9 +21,10 @@
     <input required type="text" class="form-control" id="artsprice" name="artsprice" aria-describedby="loginHelp" >{{artsprice}}</input>
 
   </div>
+
         <div class="form-group">
     <label for="artscategory" >Category</label>
-    <select  class="form-control" id="artscategory" name="artscategory" aria-describedby="loginHelp" >
+    <select  class="form-control" id="artscategory" name="artscatagory" aria-describedby="loginHelp" >
     {% for cat in item %}
       <option valeu="{{cat.category}}">{{cat.categorydescr}}</option>
     {% endfor %}}
@@ -30,7 +32,16 @@
 
 
   </div>
+        <div class="mb-3">
+  <label for="formFile" class="form-label">Image</label>
+  <input class="form-control" type="file" id="formFile" name="artsimage">
+</div>
+</div>
+      <div class="form-group">
+    <label for="artsname">Price</label>
+    <input required type="text" class="form-control" id="artspath" name="artspath" aria-describedby="loginHelp" >{{artsprice}}</input>
 
+  </div>
 
     </div>
   </div>
