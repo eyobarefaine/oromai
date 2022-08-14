@@ -2,8 +2,9 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.template import loader
 from django.shortcuts import render, redirect
+from .ArtbeatsProductForm import ProductForm
 from .entity.model import arts
-from .entity.model import artsproducts,artscategory,artbeatproducts
+from .entity.model import artbeatproducts,artscategory
 
 @login_required(login_url='/userlogin')
 def index(request):
@@ -20,18 +21,20 @@ def add(request):
         category = artscategory.objects.all().values();
         my = loader.get_template('alekaaddproducts.html')
         context = {
-            'title': 'Milli Artbeats Page', 'artist': 'Admins', 'item': category,'add':True
+            'title': 'Milli Artbeats Page', 'artist': 'Admins', 'item': category,'add':True,
         }
         return HttpResponse(my.render(context, request))
 @login_required(login_url='/userlogin')
 def save(request):
-        if request.method == 'POST':
-                artsname_ = request.POST.get('artsname','')
-                artsdescr_ = request.POST.get('artsdesc','')
-                artsprice_ = request.POST.get('artsprice','')
-                artscategory_= request.POST.get('artscategory','')
-                artbeatproducts.objects.create(artsname=artsname_, artsdescr=artsdescr_,artsprice=artsprice_,artscatagory=artscategory_)
-        return redirect("/aleka/products")
+        #if request.method == 'POST':
+         ####    artscategory_= request.POST.get('artscategory','')
+             #   artbeatproducts.objects.create(artsname=artsname_, artsdescr=artsdescr_,artsprice=artsprice_,artscatagory=artscategory_)
+        form = ProductForm(request.POST, request.FILES)
+        t="false"
+        if form.is_valid():
+            t="true"
+            form.save()
+        return redirect("/aleka/products?id="+t)
 
 login_required(login_url='/userlogin')
 def updaterecord(request):
@@ -42,7 +45,7 @@ def updaterecord(request):
                 obj.artsdescr = request.POST.get('artsdesc','')
                 obj.artsprice = request.POST.get('artsprice','')
                 obj.artscategory= request.POST.get('artscategory','')
-                obj.save()
+                artbeatproducts.save(obj)
                # artsproducts.objects.create(artsname=artsname_, artsdescr=artsdescr_,artsprice=artsprice_,artscatagory=artscategory_)
         return redirect("/aleka/products")
 

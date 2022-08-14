@@ -3,7 +3,7 @@
 <div class="container-fluid" style="margin-left:50px">
 <form method="post" action="/aleka/saveproducts/" enctype="multipart/form-data">
   {% csrf_token %}
-  {{ form.as_p }}
+  
   <div class="form-group">
     <div class="row" style="width:50%">
       <div class="form-group">
@@ -37,13 +37,7 @@
   <input class="form-control" type="file" id="formFile" name="artsimage">
 </div>
 </div>
-      <div class="form-group">
-    <label for="artsname">Price</label>
-    <input required type="text" class="form-control" id="artspath" name="artspath" aria-describedby="loginHelp" >{{artsprice}}</input>
 
-  </div>
-
-    </div>
   </div>
   <div class="form-group">
     </div>

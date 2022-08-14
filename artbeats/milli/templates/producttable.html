@@ -1,8 +1,8 @@
 {% include "adminmenu.html"%}
 <div class="row" style="padding:50px;margin-lef:50px;  background-color: white; color:black" >
 <div class="container-fluid" style="margin-left:50px">
-<form method="post" action="/save/">
-  {% csrf_token %}
+
+
 
   {% for k in items%}
     {{items.artsname}}
@@ -17,7 +17,7 @@
       <th scope="col">Descr</th>
       <th scope="col">Price</th>
        <th scope="col">Category</th>
-        <th scope="col">Category</th>
+        <th scope="col">Image</th>
     </tr>
   </thead>
   <tbody>
@@ -46,7 +46,7 @@
       <td>{{k.artsdescr}}</td>
       <td>{{k.artsprice}}</td>
       <td>{{k.artscatagory}}</td>
-      <th scope="col"><img src="{{k.artsimage}}" width="50"></th>
+      <th scope="col"><img src="../{{k.artsimage}}" width="50"></th>
     </tr>
 
   {%endfor%}
@@ -57,6 +57,6 @@
 
 
 
-</form>
+
 </div>
 </div>
