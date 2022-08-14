@@ -3,12 +3,12 @@ from django.contrib.auth.decorators import login_required
 from django.template import loader
 from django.shortcuts import render, redirect
 from .entity.model import arts
-from .entity.model import artsproducts,artscategory
+from .entity.model import artsproducts,artscategory,artbeatproducts
 
 @login_required(login_url='/userlogin')
 def index(request):
 
-        rows = artsproducts.objects.all().values()
+        rows = artbeatproducts.objects.all().values()
         my = loader.get_template('alekaproducts.html')
         context = {
             'title': 'Milli Artbeats Page', 'artist': 'Admins', 'items': rows
@@ -30,14 +30,14 @@ def save(request):
                 artsdescr_ = request.POST.get('artsdesc','')
                 artsprice_ = request.POST.get('artsprice','')
                 artscategory_= request.POST.get('artscategory','')
-                artsproducts.objects.create(artsname=artsname_, artsdescr=artsdescr_,artsprice=artsprice_,artscatagory=artscategory_)
+                artbeatproducts.objects.create(artsname=artsname_, artsdescr=artsdescr_,artsprice=artsprice_,artscatagory=artscategory_)
         return redirect("/aleka/products")
 
 login_required(login_url='/userlogin')
 def updaterecord(request):
         if request.method == 'POST':
                 id_ = request.POST.get('id')
-                obj = artsproducts.objects.get(id=id_)
+                obj = artbeatproducts.objects.get(id=id_)
                 obj.artsname = request.POST.get('artsname','')
                 obj.artsdescr = request.POST.get('artsdesc','')
                 obj.artsprice = request.POST.get('artsprice','')
@@ -50,14 +50,14 @@ def updaterecord(request):
 def remove (request):
         if request.method == 'POST':
                 id_ = request.POST.get('id','')
-                artsproducts.objects.filter(id=id_).delete()
+                artbeatproducts.objects.filter(id=id_).delete()
                 return redirect("/aleka/products")
 
 @login_required(login_url='/userlogin')
 def edit(request):
        if request.GET.get('id'):
           id_ = request.GET.get('id')
-          row = artsproducts.objects.filter(id=id_).values()
+          row = artbeatproducts.objects.filter(id=id_).values()
           category = artscategory.objects.all().values();
           my = loader.get_template('alekaaddproducts.html')
           context = {

@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import UserManager
-#eyobwoldemichael   
+#eyobwoldemichael
 class arts(models.Model):
     title = models.TextField(default='')
     descr = models.TextField(default='')
