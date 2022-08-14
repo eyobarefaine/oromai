@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import UserManager
 class arts(models.Model):
-    title = models.CharField(max_length=128)
-    descr = models.CharField(max_length=250)
+    title = models.TextField(default='')
+    descr = models.TextField(default='')
 
 
     def __str__(self):
@@ -17,11 +17,17 @@ class artsadmin(models.Model):
     password = models.CharField(max_length=20)
 
 class artsproducts(models.Model):
-    artsname = models.CharField(max_length=128)
-    artsdescr = models.CharField(max_length=256)
-    artspath = models.CharField(max_length=300)
-    artsprice = models.DecimalField(max_digits=6, decimal_places=2)
-    artscatagory = models.CharField(max_length=15)
+    products = models.TextField(default=' ')
+
+class artbeatproducts(models.Model):
+    artsimage = models.ImageField(upload_to='static/milli/img')
+    artsname = models.TextField(default='')
+    artsdescr = models.TextField( default=' ')
+    artspath = models.TextField( default=' ')
+    artsprice = models.DecimalField(max_digits=6, decimal_places=2, default=0)
+    artscatagory = models.TextField( default=' ')
+    artsmis   = models.TextField(default=' ')
+
 
 class artscategory(models.Model):
     category = models.CharField(max_length=50)
